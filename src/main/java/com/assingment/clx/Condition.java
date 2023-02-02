@@ -2,6 +2,7 @@ package com.assingment.clx;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Condition {
     private final String attributeName;
@@ -60,5 +61,18 @@ public class Condition {
             default:
                 throw new IllegalArgumentException("Invalid operator for string comparison: " + operator);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Condition condition = (Condition) o;
+        return Objects.equals(attributeName, condition.attributeName) && Objects.equals(value, condition.value) && Objects.equals(operator, condition.operator);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(attributeName, value, operator);
     }
 }

@@ -58,7 +58,7 @@ Once the build is successful, you can run the following command to execute the a
 
 ```java -jar target/assingment-clx-1.0-SNAPSHOT.jar src/main/resources/products.csv src/main/resources/rules.csv false 100```
 
-The application should now be running.
+The application should have executed by now.
 
 ### Conclusion
 By following these steps, you should be able to run the application on a command line using Maven. If you encounter any issues, refer to the Maven documentation for more information.

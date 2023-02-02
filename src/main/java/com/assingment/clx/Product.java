@@ -1,5 +1,7 @@
 package com.assingment.clx;
 
+import java.util.Objects;
+
 public class Product {
     private String name;
     private String type;
@@ -7,6 +9,7 @@ public class Product {
     private double cost;
     private double weight;
     private double score;
+
 
     public Product(String name, String type, String color, double cost, double weight, double score) {
         this.name = name;
@@ -74,6 +77,19 @@ public class Product {
                 ", cost=" + cost +
                 ", weight=" + weight +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return Double.compare(product.getCost(), getCost()) == 0 && Double.compare(product.getWeight(), getWeight()) == 0 && Double.compare(product.getScore(), getScore()) == 0 && Objects.equals(getName(), product.getName()) && Objects.equals(getType(), product.getType()) && Objects.equals(getColor(), product.getColor());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getType(), getColor(), getCost(), getWeight(), getScore());
     }
 
     protected Object getProductAttributeValue(String attributeName) {
