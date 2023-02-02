@@ -1,3 +1,9 @@
+## Assumptions Made
+
+* The salesman knows how to use a comand line interface
+* The list of rules comes as a file
+* The list of products comes as a file
+
 ## The UML Diagram
 
 ![img_1.png](img_1.png)
