@@ -24,7 +24,7 @@ public class Main {
 
         PriceCalculator calculator = new PriceCalculator();
         double averagePrice = calculator.calculateAveragePrice(products);
-        double totalPrice = calculator.calculateAveragePrice(products);
+        double totalPrice = calculator.calculateTotalPrice(products);
 
         System.out.println("Total price: " + totalPrice);
         System.out.println("Average price: " + averagePrice);
