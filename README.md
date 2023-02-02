@@ -48,9 +48,9 @@ This guide will help you to run the application on a command line using Maven.
 
 Open the terminal/command prompt in the root directory of the application.
 
-Run the following command to build the application using Maven:
+Run the following command to test and build the application using Maven:
 
-```mvn clean install```
+```mvn clean install test```
 
 This will download all the dependencies specified in the pom.xml file and build the application.
 
