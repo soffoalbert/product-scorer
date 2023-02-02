@@ -1,48 +1,32 @@
 package com.assingment.clx;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
-        List<Product> products = new ArrayList<>();
-        products.add(new Product("product1", "type1", "blue", 15.00, 700));
-        products.add(new Product("product2", "type2", "red", 12.00, 800));
-        products.add(new Product("product3", "type3", "green", 18.00, 700));
-        products.add(new Product("product4", "type4", "blue", 20.00, 700));
-
-        List<Rule> rules1 = new ArrayList<>();
-        List<Rule> rules2 = new ArrayList<>();
-        List<Condition> conditions = new ArrayList<>();
-        conditions.add(new Condition("color", "blue", "=="));
-        conditions.add(new Condition("cost", 17.75, "<"));
-        conditions.add(new Condition("name", "product3", "=="));
-        conditions.add(new Condition("color", "red", "!="));
-        conditions.add(new Condition("cost", 17.75, ">"));
-        conditions.add(new Condition("name", "product4", "!="));
-        rules1.add(new Rule(false,100, conditions));
-        rules2.add(new Rule(true,100, conditions));
-
-
-        for (Product product : products) {
-            int score = 0;
-            for (Rule rule : rules1) {
-                score += rule.getScore(product);
-            }
-            System.out.println(score);
+    public static void main(String[] args) throws IOException {
+        if (args.length < 2) {
+            throw new IllegalArgumentException("Please Provide the path to the salesman rules as well as the products file.");
         }
-//
-//        double totalPrice = 0.0;
-//        int count = 0;
-//        for (Product product : products) {
-//            if (product.getScore() >= 50) {
-//                totalPrice += product.getPrice();
-//                count++;
-//            }
-//        }
+        String PRODUCT_FILEPATH = args[0];
+        String CONDITIONS_FILEPATH = args[1];
+        String ISNEGATIVE = args[2];
+        String SCORE= args[3];
+        List<Product> products = CsvFileObjectMapper.mapProductsToObjects(PRODUCT_FILEPATH);
 
-//        double averagePrice = totalPrice / count;
-//        System.out.println("Total price: " + totalPrice);
-//        System.out.println("Average price: " + averagePrice);
+        List<Condition> conditions = CsvFileObjectMapper.mapConditionsToObjects(CONDITIONS_FILEPATH);
+
+        Rule rule = new Rule(Boolean.parseBoolean(ISNEGATIVE), Integer.parseInt(SCORE), conditions);
+
+        Scorer scorer = new Scorer(rule);
+        products = scorer.scoreProducts(products);
+
+        PriceCalculator calculator = new PriceCalculator();
+        double averagePrice = calculator.calculateAveragePrice(products);
+        double totalPrice = calculator.calculateAveragePrice(products);
+
+        System.out.println("Total price: " + totalPrice);
+        System.out.println("Average price: " + averagePrice);
     }
 }

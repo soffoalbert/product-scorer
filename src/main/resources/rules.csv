@@ -1,0 +1,6 @@
+color,blue,==,false,100
+cost,17.75,<,false,100
+name,product3,==,false,100
+color,red,!=,false,100
+cost,17.75,>,false,100
+name,product4,!=,false,100

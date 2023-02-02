@@ -13,7 +13,7 @@ public class ConditionTest {
         Object value = 100.0;
         String operator = ">=";
         Condition condition = new Condition(attributeName, value, operator);
-        Product product = new Product("product3", "type3", "blue", 100.00, 700);
+        Product product = new Product("product3", "type3", "blue", 100.00, 700, 0);
         assertTrue(condition.isMatching(product));
     }
 
@@ -24,7 +24,7 @@ public class ConditionTest {
         Object value = 100.0;
         String operator = ">=";
         Condition condition = new Condition(attributeName, value, operator);
-        Product product = new Product("product3", "type3", "blue", 8, 700);
+        Product product = new Product("product3", "type3", "blue", 8, 700, 0);
         assertFalse(condition.isMatching(product));
     }
 
@@ -71,56 +71,56 @@ public class ConditionTest {
     @Test
     public void testStringComparisonEqual() {
         Condition condition = new Condition("name", "apple", "==");
-        Product product = new Product("apple", "type3", "blue", 100.00, 700);
+        Product product = new Product("apple", "type3", "blue", 100.00, 700, 0);
         assertTrue(condition.isMatching(product));
     }
 
     @Test
     public void testStringComparisonNotEqual() {
         Condition condition = new Condition("name", "apple", "!=");
-        Product product = new Product("product3", "type3", "blue", 100.00, 700);
+        Product product = new Product("product3", "type3", "blue", 100.00, 700, 0);
         assertTrue(condition.isMatching(product));
     }
 
     @Test
     public void testDoubleComparisonGreaterThan() {
         Condition condition = new Condition("cost", 1.0, ">");
-        Product product = new Product("product3", "type3", "blue", 100.00, 700);
+        Product product = new Product("product3", "type3", "blue", 100.00, 700, 0);
         assertTrue(condition.isMatching(product));
     }
 
     @Test
     public void testDoubleComparisonLessThan() {
         Condition condition = new Condition("weight", 0.5, "<");
-        Product product = new Product("product3", "type3", "blue", 100.00, 0.2);
+        Product product = new Product("product3", "type3", "blue", 100.00, 0.2, 0);
         assertTrue(condition.isMatching(product));
     }
 
     @Test
     public void testDoubleComparisonEqual() {
         Condition condition = new Condition("cost", 1.0, "==");
-        Product product = new Product("product3", "type3", "blue", 1.0, 700);
+        Product product = new Product("product3", "type3", "blue", 1.0, 700, 0);
         assertTrue(condition.isMatching(product));
     }
 
     @Test
     public void testDoubleComparisonNotEqual() {
         Condition condition = new Condition("cost", 1.0, "!=");
-        Product product = new Product("product3", "type3", "blue", 100.00, 700);
+        Product product = new Product("product3", "type3", "blue", 100.00, 700, 0);
         assertTrue(condition.isMatching(product));
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testUnknownAttribute() {
         Condition condition = new Condition("unknown", 1.0, "==");
-        Product product = new Product("product3", "type3", "blue", 100.00, 700);
+        Product product = new Product("product3", "type3", "blue", 100.00, 700, 0);
         condition.isMatching(product);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testInvalidOperator() {
         Condition condition = new Condition("cost", 1.0, "=");
-        Product product = new Product("apple", "red", "Blue", 0.5,1);
+        Product product = new Product("apple", "red", "Blue", 0.5,1, 0);
         condition.isMatching(product);
     }
 

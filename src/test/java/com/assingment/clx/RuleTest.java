@@ -13,7 +13,7 @@ public class RuleTest {
     // Test for negative boolean value
     @Test
     public void testNegativeValue() {
-        Product product = new Product("product3", "type3", "green", 100.00, 700);
+        Product product = new Product("product3", "type3", "green", 100.00, 700, 0);
         List<Condition> conditions = new ArrayList<>();
         conditions.add(new Condition("color", "green", "=="));
         Rule rule = new Rule(true, 10, conditions);
@@ -23,7 +23,7 @@ public class RuleTest {
     // Test for score value
     @Test
     public void testScoreValue() {
-        Product product = new Product("product3", "type3", "green", 100.00, 700);
+        Product product = new Product("product3", "type3", "green", 100.00, 700, 0);
         List<Condition> conditions = new ArrayList<>();
         conditions.add(new Condition("color", "green", "=="));
         Rule rule = new Rule(false, 20, conditions);
@@ -34,7 +34,7 @@ public class RuleTest {
     @Test
     public void testGetScoreAllMatchingConditions() {
         List<Condition> conditions = new ArrayList<>();
-        Product product = new Product("product3", "type3", "green", 100.00, 700);
+        Product product = new Product("product3", "type3", "green", 100.00, 700, 0);
         conditions.add(new Condition("color", "green", "=="));
         conditions.add(new Condition("cost", 9, ">"));
         Rule rule = new Rule(false, 50, conditions);
@@ -45,7 +45,7 @@ public class RuleTest {
     @Test
     public void testGetScoreSomeNonMatchingConditions() {
         List<Condition> conditions = new ArrayList<>();
-        Product product = new Product("product3", "type3", "blue", 100.00, 700);
+        Product product = new Product("product3", "type3", "blue", 100.00, 700, 0);
         conditions.add(new Condition("color", "green", "=="));
         conditions.add(new Condition("cost", 9, ">"));
         Rule rule = new Rule(false, 50, conditions);
@@ -56,7 +56,7 @@ public class RuleTest {
     @Test
     public void testGetScoreNegativeValue() {
         List<Condition> conditions = new ArrayList<>();
-        Product product = new Product("product3", "type3", "blue", 100.00, 700);
+        Product product = new Product("product3", "type3", "blue", 100.00, 700, 0);
         conditions.add(new Condition("color", "green", "=="));
         conditions.add(new Condition("cost", 9, ">"));
         Rule rule = new Rule(true, 50, conditions);

@@ -1,20 +1,28 @@
 package com.assingment.clx;
 
-import java.util.List;
-
-class Product {
+public class Product {
     private String name;
     private String type;
     private String color;
     private double cost;
     private double weight;
+    private double score;
 
-    public Product(String name, String type, String color, double cost, double weight) {
+    public Product(String name, String type, String color, double cost, double weight, double score) {
         this.name = name;
         this.type = type;
         this.color = color;
         this.cost = cost;
         this.weight = weight;
+        this.score = score;
+    }
+
+    public double getScore() {
+        return score;
+    }
+
+    public void setScore(double score) {
+        this.score = score;
     }
 
     public String getName() {
@@ -55,6 +63,17 @@ class Product {
 
     public void setWeight(double weight) {
         this.weight = weight;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", color='" + color + '\'' +
+                ", cost=" + cost +
+                ", weight=" + weight +
+                '}';
     }
 
     protected Object getProductAttributeValue(String attributeName) {
