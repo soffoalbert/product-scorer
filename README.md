@@ -1,37 +1,6 @@
 ## The UML Diagram
 
-        +--------------+
-        |  Product     |
-        +--------------+
-        | - name: String |
-        | - type: String |
-        | - color: String |
-        | - cost: double  |
-        | - weight: double|
-        | - score: double |
-        +--------------+
-                /\
-                ||
-                \/
-        +--------------+
-        |   Rule       |
-        +--------------+
-        | - conditions: List<Condition> |
-        | - score: int  |
-        | - negative: boolean |
-        +--------------+
-                /\
-                ||
-                \/
-        +--------------+
-        | Condition    |
-        +--------------+
-        | - attributeName: String |
-        | - value: Object     |
-        | - operator: String  |
-        +--------------+
-
-
+![img_1.png](img_1.png)
 
 ## How to Run the application on a command line
 
