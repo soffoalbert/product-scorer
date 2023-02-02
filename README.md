@@ -56,7 +56,7 @@ This will download all the dependencies specified in the pom.xml file and build 
 
 Once the build is successful, you can run the following command to execute the application:
 
-```java -jar target/assingment-clx-1.0-SNAPSHOT.jar```
+```java -jar target/assingment-clx-1.0-SNAPSHOT.jar src/main/resources/products.csv src/main/resources/rules.csv false 100```
 
 The application should now be running.
 
